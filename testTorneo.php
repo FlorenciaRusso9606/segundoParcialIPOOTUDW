@@ -51,12 +51,8 @@ echo "Cantidad de Equipos en el Torneo: " . $cantidadEquipos . "\n";
 $ganadoresBasquet = $torneo->darGanadores('basquetbol');
 echo "Ganadores de basquet: " . "\n";
 foreach($ganadoresBasquet as $equipoGanador){
-    echo $equipoGanador-getNombre() ."\n";
-    echo $equipoGanador->getCapitan()."\n";
-    echo $equipoGanador->getCantJugadores()."\n";
-    echo $equipoGanador->getObjCategoria()."\n";
+    echo $equipo;
 }
-print_r($ganadoresBasquet);
 $ganadoresFutbol = $torneo->darGanadores('futbol');
 echo "Ganadores de futbol: " . "\n";
 foreach($ganadoresFutbol as $equipo){

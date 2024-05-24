@@ -49,7 +49,13 @@ class Torneo{
             if ($partido instanceof PartidoFutbol && $deporte == 'futbol' ||
                 $partido instanceof PartidoBasquetbol && $deporte == 'basquetbol') {
                 $equipoGanador = $partido->darEquipoGanador();
-                $ganadores[] = $equipoGanador;
+                if (count($equipoGanador) == 1) {
+                    $ganadores[] = $equipoGanador;
+                } else {
+                    // Si hay empate, agregar ambos equipos a la colección de ganadores
+                    $ganadores[] = $equipoGanador[0];
+                    $ganadores[] = $equipoGanador[1];
+                }
             }
         }
         return $ganadores;
