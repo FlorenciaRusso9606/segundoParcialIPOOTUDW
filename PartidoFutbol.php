@@ -38,7 +38,7 @@ class PartidoFutbol extends Partido{
 
         $cantGoles = $this->getCantGolesE1() + $this->getCantGolesE2();
         $cantJugadores = $this->getObjEquipo1()->getCantJugadores() + $this->getObjEquipo2()->getCantJugadores();
-        $coefBase=0;
+        $coefBase=parent::calcularCoeficiente();
         if($this->getObjEquipo1()->getObjCategoria()->getDescripcion() == $this->getObjEquipo2()->getObjCategoria()->getDescripcion()){
             if($this->getObjEquipo1()->getObjCategoria()->getDescripcion() == 'Menores'){
                 $coefBase= $this->getCoefMenores()*$cantGoles*$cantJugadores;
