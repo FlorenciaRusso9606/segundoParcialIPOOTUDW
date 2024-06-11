@@ -36,13 +36,13 @@ class PartidoFutbol extends Partido{
     }
     public function calcularCoeficiente() {
 
-        $cantGoles = $this->getCantGolesE1() + $this->getCantGolesE2();
-        $cantJugadores = $this->getObjEquipo1()->getCantJugadores() + $this->getObjEquipo2()->getCantJugadores();
+        $cantGoles = parent::getCantGolesE1() + parent::getCantGolesE2();
+        $cantJugadores = parent::getObjEquipo1()->getCantJugadores() +  parent::getObjEquipo2()->getCantJugadores();
         $coefBase=parent::calcularCoeficiente();
-        if($this->getObjEquipo1()->getObjCategoria()->getDescripcion() == $this->getObjEquipo2()->getObjCategoria()->getDescripcion()){
-            if($this->getObjEquipo1()->getObjCategoria()->getDescripcion() == 'Menores'){
+        if(parent::getObjEquipo1()->getObjCategoria()->getDescripcion() == parent::getObjEquipo2()->getObjCategoria()->getDescripcion()){
+            if(parent::getObjEquipo1()->getObjCategoria()->getDescripcion() == 'Menores'){
                 $coefBase= $this->getCoefMenores()*$cantGoles*$cantJugadores;
-            } elseif($this->getObjEquipo1()->getObjCategoria()->getDescripcion() == 'Juveniles'){
+            } elseif(parent::getObjEquipo1()->getObjCategoria()->getDescripcion() == 'Juveniles'){
                 $coefBase= $this->getCoefJuveniles()*$cantGoles*$cantJugadores;
             }else{
                 $coefBase= $this->getCoefMayores()*$cantGoles*$cantJugadores;
